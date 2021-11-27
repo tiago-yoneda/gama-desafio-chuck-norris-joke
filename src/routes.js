@@ -10,10 +10,10 @@ const RouteComponent = () => {
   return(
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Error404 />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
       <Footer />
     </BrowserRouter>
   )
