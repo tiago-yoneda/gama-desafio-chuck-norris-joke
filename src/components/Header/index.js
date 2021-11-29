@@ -42,7 +42,7 @@ const Header = () => {
               <FormLabel>Selecione a categoria de sua piada</FormLabel>
               <Select onChange={handleCategory}>
                 {main?.map( (item, index) => (
-                  <option key={index} value={item}> {item} </option>
+                  <option key={index} value={item}> {item.charAt(0).toUpperCase() + item.slice(1)} </option>
                 ))}
               </Select>
             </FormControl>

@@ -8,7 +8,7 @@ import {
 
 import api from '../../services/api';
 
-import Loader from '../../assets/loader.gif'
+import Loader from '../../assets/loading.gif'
 
 const App = () => {
   const [data, setData] = useState({});
@@ -27,7 +27,7 @@ const App = () => {
     .catch( e => console.error(e))
     .finally( () => setTimeout(() => {
       setIsLoad(false)
-    }, 2500))
+    }, 920))
   }, [])
 
   const handleSubmit = (e) => {
@@ -41,6 +41,15 @@ const App = () => {
     )
     .catch( err => console.error(err))
     .finally( () => setIsLoad(false))
+  }
+
+  const getJoke = async () => {
+    const data = await api.get('random')
+      .then((response) => response.data)
+
+    if (data) {
+      setData(data)
+    }
   }
 
   if(isLoad) {
@@ -58,7 +67,8 @@ const App = () => {
         <form onSubmit={handleSubmit}>
           <FormLabel>Pesquise sua piada</FormLabel>
           <Input type="text" onChange={e => setSearchJoke(e.target.value)} />
-          <Button type="submit">Pesquisar</Button>
+          <Button className='form-button' type="submit" colorScheme='teal' size='xs'>Pesquisar</Button>
+          <Button className='form-button' type="button" colorScheme='teal' size='xs' onClick={ getJoke }>Mais Uma</Button>
         </form>
       </div>
       { !isSearch ? (

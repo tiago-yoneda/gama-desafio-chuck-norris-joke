@@ -1,7 +1,9 @@
 *{
   padding: 0;
   margin: 0;
-  font-family: 'Lobster', cursive;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: large;
+  font-weight: 400;
 }
 
 .loader{
@@ -9,10 +11,6 @@
   justify-content:  center;
   align-items: center;
   height: 70vh;
-  /* background-image: url(./assets/loader.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover; */
 }
 
 .home-component{
@@ -33,4 +31,8 @@ nav .logo {
 footer{
   text-align: center;
   height: 180px;
+}
+
+.form-button {
+  margin: 35px;
 }
