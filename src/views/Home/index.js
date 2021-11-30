@@ -3,7 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {
   FormLabel,
   Input,
-  Button
+  Button,
+  Box
 } from '@chakra-ui/react'
 
 import api from '../../services/api';
@@ -65,24 +66,41 @@ const App = () => {
       <h1>Joke</h1>
       <div>
         <form onSubmit={handleSubmit}>
-          <FormLabel>Pesquise sua piada</FormLabel>
-          <Input type="text" onChange={e => setSearchJoke(e.target.value)} />
+          <FormLabel>Pesquise sua piada:</FormLabel>
+          <Input
+            placeholder="o termo tem que estar em inglês"
+            focusBorderColor='cyan.400'
+            type="text" onChange={e => setSearchJoke(e.target.value)}
+          />
           <Button className='form-button' type="submit" colorScheme='teal' size='xs'>Pesquisar</Button>
           <Button className='form-button' type="button" colorScheme='teal' size='xs' onClick={ getJoke }>Mais Uma</Button>
         </form>
       </div>
       { !isSearch ? (
-        <div className="jokes">
+        <Box
+          className='jokes'
+          boxShadow='dark-lg'
+          my='15px'
+          borderWidth='2px'
+          borderRadius='md'
+        >
           <img src={data?.icon_url} alt={data?.value} />
           <h3>{data?.value}</h3>
-        </div>
+        </Box>
       ) : (
         <>
           { allJokes?.result.map( (item, index) => (
-            <div key={index} className="jokes">
+            <Box
+              className='jokes'
+              boxShadow='dark-lg'
+              my='15px'
+              borderWidth='2px'
+              borderRadius='md'
+              key={index}
+            >
               <img src={item?.icon_url} alt={item?.value} />
               <h3>{item?.value}</h3>
-            </div>
+            </Box>
           ))}
         </>
       )}

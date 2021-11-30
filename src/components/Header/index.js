@@ -8,7 +8,7 @@ import {
   FormLabel,
   Select
 }  from '@chakra-ui/react'
-import Logo from '../../assets/logo.jpeg';
+import Logo from '../../assets/logo3.png';
 
 import api from '../../services/api'
 
